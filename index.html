@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Madhu Harini Maanthi — UI/UX, product thinking and project portfolio.">
+  <title>Madhu Harini Maanthi | Portfolio</title>
+  <style>
+    :root{
+      --indigo:#5B4BC4;
+      --indigo-dark:#4737a8;
+      --lavender:#F0EDFF;
+      --warm:#FAFAFC;
+      --navy:#202033;
+      --muted:#6f6f82;
+      --green:#2E9D72;
+      --border:#e6e4f2;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(56,47,125,.10);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--navy);
+      background:var(--warm);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1080px,calc(100% - 36px));margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(250,250,252,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(230,228,242,.75);
+    }
+    .nav-inner{
+      height:70px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{font-weight:800;letter-spacing:-.03em}
+    .brand span{color:var(--indigo)}
+    .nav-links{display:flex;gap:24px;color:var(--muted);font-size:.94rem}
+    .nav-links a:hover{color:var(--indigo)}
+    .hero{
+      padding:92px 0 70px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(91,75,196,.13), transparent 28%),
+        radial-gradient(circle at 10% 35%, rgba(46,157,114,.09), transparent 24%);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--lavender);color:var(--indigo);
+      padding:8px 12px;border-radius:999px;font-weight:700;font-size:.82rem;
+    }
+    h1{
+      font-size:clamp(3rem,7vw,5.4rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+      margin:18px 0 18px;
+    }
+    h1 span{color:var(--indigo)}
+    .hero-copy{font-size:1.08rem;color:var(--muted);max-width:650px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:12px;font-weight:700;
+      border:1px solid var(--border);transition:.2s ease;
+    }
+    .btn-primary{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+    .btn-primary:hover{background:var(--indigo-dark);transform:translateY(-2px)}
+    .btn-secondary{background:#fff}
+    .btn-secondary:hover{border-color:var(--indigo);color:var(--indigo);transform:translateY(-2px)}
+    .hero-card{
+      background:linear-gradient(150deg,#fff,#f5f2ff);
+      border:1px solid var(--border);border-radius:28px;
+      box-shadow:var(--shadow);padding:28px;
+    }
+    .mini-label{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}
+    .hero-card h3{font-size:1.6rem;margin:10px 0}
+    .hero-card p{color:var(--muted);margin-top:0}
+    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .pill{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:.82rem}
+    section{padding:74px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+    .section-head h2{margin:0;font-size:2rem;letter-spacing:-.04em}
+    .section-head p{margin:0;color:var(--muted);max-width:580px}
+    .grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+    }
+    .project{
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      padding:24px;box-shadow:0 10px 35px rgba(42,37,91,.05);
+      display:flex;flex-direction:column;min-height:310px;
+      transition:.2s ease;
+    }
+    .project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .project.featured{border-color:#cec7ff;background:linear-gradient(180deg,#fff,#f7f5ff)}
+    .number{
+      font-size:.75rem;font-weight:800;color:var(--indigo);
+      letter-spacing:.1em;text-transform:uppercase;
+    }
+    .project h3{margin:8px 0 4px;font-size:1.35rem;letter-spacing:-.025em}
+    .subtitle{color:var(--muted);font-size:.92rem;margin:0 0 15px}
+    .project p{color:#505063;font-size:.94rem}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
+    .tag{font-size:.76rem;padding:6px 9px;background:var(--lavender);color:var(--indigo);border-radius:999px;font-weight:700}
+    .project-footer{margin-top:auto;display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .link{font-weight:700;color:var(--indigo);font-size:.87rem}
+    .link:hover{text-decoration:underline}
+    .award{font-size:.8rem;color:var(--green);font-weight:800;text-align:right}
+    .about{
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;
+    }
+    .about-card,.contact-card{
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px;
+    }
+    .about-card h3,.contact-card h3{margin-top:0}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .skill{padding:8px 11px;background:#f6f5fb;border-radius:10px;font-size:.84rem}
+    .contact{
+      background:var(--navy);color:#fff;
+    }
+    .contact-card{background:transparent;border-color:rgba(255,255,255,.14)}
+    .contact p{color:#c4c4d3}
+    .contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .contact-link{padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:rgba(255,255,255,.04)}
+    .contact-link:hover{border-color:#9e94ff;color:#dcd8ff}
+    footer{padding:24px 0;color:#9d9db2;background:var(--navy);border-top:1px solid rgba(255,255,255,.08);font-size:.85rem}
+    .mobile-menu{display:none}
+    @media(max-width:800px){
+      .nav-links{display:none}
+      .mobile-menu{display:block;border:0;background:none;font-size:1.2rem}
+      .hero-grid,.about,.grid{grid-template-columns:1fr}
+      .hero{padding-top:64px}
+      h1{font-size:3.5rem}
+      .section-head{display:block}
+      .section-head p{margin-top:8px}
+    }
+    @media(max-width:520px){
+      .container{width:min(100% - 24px,1080px)}
+      h1{font-size:2.85rem}
+      section{padding:54px 0}
+      .project{min-height:auto}
+      .hero-card{padding:22px}
+      .nav-inner{height:62px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home">Madhu<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/madhu-harini" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <button class="mobile-menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+    </div>
+  </nav>
+
+  <main id="home">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">CSE Undergraduate · UI/UX · Product Thinking</span>
+          <h1>Building ideas that make <span>people want to come back.</span></h1>
+          <p class="hero-copy">
+            Hi, I'm Madhu Harini — a Computer Science student exploring UI/UX, product thinking,
+            problem solving, and AI-assisted prototyping through hackathons and design-focused projects.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="mailto:maanthimadhuharini@gmail.com">Let's Connect</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="mini-label">Currently</div>
+          <h3>Learning by building.</h3>
+          <p>Focused on stronger fundamentals, better product thinking, and creating useful student experiences.</p>
+          <div class="pill-row">
+            <span class="pill">UI/UX</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Java</span>
+            <span class="pill">Power BI</span>
+            <span class="pill">Git & GitHub</span>
+            <span class="pill">AI-assisted prototyping</span>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Selected projects</h2>
+            <p>A mix of UI/UX, product ideas, AI-assisted prototypes, and data storytelling.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="project featured">
+            <div class="number">01 · ABTalks — Proof</div>
+            <h3>60-Day Developer Journey</h3>
+            <p>
+              Reimagined the ABTalks experience around <strong>BUILD → PROVE → GROW</strong>,
+              with a Proof Portfolio that turns a 60-day challenge into something students can actually show.
+            </p>
+            <div class="tags"><span class="tag">UI/UX</span><span class="tag">Product Thinking</span><span class="tag">Web Design</span></div>
+            <div class="project-footer">
+              <div class="links">
+                <a class="link" href="https://lnkd.in/g3kNm4C6" target="_blank" rel="noopener">Live Demo ↗</a>
+                <a class="link" href="https://lnkd.in/gD6jtGMc" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="number">02 · IN LOOP</div>
+            <h3>Student Peer-Learning Platform</h3>
+            <p>
+              A student-to-student platform for learners who miss classes because of hackathons,
+              club activities, and other commitments and need a better way to catch up.
+            </p>
+            <div class="tags"><span class="tag">UI/UX</span><span class="tag">User-Centered Design</span><span class="tag">Prototyping</span></div>
+            <div class="project-footer">
+              <div class="links"></div>
+              <div class="award">UXPLOSION 3.0 · SDC SNIST</div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="number">03 · Eventra</div>
+            <h3>Smart Event Management Platform</h3>
+            <p>
+              An AI-assisted prototype for hackathons, tech fests, and conferences with QR check-in,
+              teammate matching, announcements, judging, leaderboards, and organizer analytics.
+            </p>
+            <div class="tags"><span class="tag">Product Design</span><span class="tag">UX</span><span class="tag">AI-assisted Prototype</span></div>
+            <div class="project-footer">
+              <div class="links">
+                <a class="link" href="https://lnkd.in/gwS-MG3F" target="_blank" rel="noopener">Live Demo ↗</a>
+                <a class="link" href="https://lnkd.in/gx5sQ95n" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <div class="award">Prompt Wars 2026 × AbhiyantriX</div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="number">04 · Why Save?</div>
+            <h3>Screenshot Context Concept</h3>
+            <p>
+              A product idea around an everyday problem: saving screenshots of things we care about,
+              then forgetting why we saved them. Focused on retaining context behind saved content.
+            </p>
+            <div class="tags"><span class="tag">Ideation</span><span class="tag">Product Thinking</span><span class="tag">User Problems</span></div>
+            <div class="project-footer">
+              <div class="links"></div>
+              <div class="award">2nd Place · Shipathon 2026</div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="number">05 · Think or Prompt?</div>
+            <h3>Data Visualization Dashboard</h3>
+            <p>
+              A Power BI dashboard exploring the relationship between AI usage and problem-solving performance,
+              turning a question about AI dependence into a data-driven story.
+            </p>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Data Storytelling</span></div>
+            <div class="project-footer">
+              <div class="links"></div>
+              <div class="award">2nd Place · InsightX Data Sprint</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>A little about me</h2>
+            <p>I'm interested in the space where technology, design, and real user problems meet.</p>
+          </div>
+        </div>
+        <div class="about">
+          <div class="about-card">
+            <h3>What I care about</h3>
+            <p>
+              I like understanding the problem before jumping to the solution.
+              UX-focused events and hackathons have pushed me to think beyond screens —
+              about people, behaviour, collaboration, and whether a product genuinely helps.
+            </p>
+          </div>
+          <div class="about-card">
+            <h3>Skills I'm growing</h3>
+            <div class="skills">
+              <span class="skill">UI/UX Design</span>
+              <span class="skill">Figma</span>
+              <span class="skill">User Research</span>
+              <span class="skill">Wireframing</span>
+              <span class="skill">Java</span>
+              <span class="skill">Power BI</span>
+              <span class="skill">Git</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">AI-assisted Prototyping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="mini-label" style="color:#bdb6ff">LET'S CONNECT</div>
+          <h2 style="font-size:2.3rem;letter-spacing:-.04em;margin:8px 0">Have a project, opportunity, or idea?</h2>
+          <p>I'm always open to learning, collaborating, and building something useful.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:maanthimadhuharini@gmail.com">Email</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/madhu-harini-maanthi-484225397/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="contact-link" href="https://github.com/madhu-harini" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Madhu Harini Maanthi · Built with curiosity.</div>
+  </footer>
+</body>
+</html>
